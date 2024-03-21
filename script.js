@@ -24,6 +24,32 @@ todos.forEach(function (todo) {
 // een functie een todo aanmaakt?
 // en wanneer er 1tje is gemaakt, dan de functie van renderen aanroepen.
 
+
+
+function addTodo() {
+  const input = document.getElementsByName("todo")
+  const inputValue = input.value;
+
+  let newTodo = {
+    text: inputValue,
+    todos: false
+  }
+  todos.push = newTodo
+}
+
+
+// addForm.addEventListener('submit', addTodo){
+
+// }
+const toAddForm = document.getElementById("addForm");
+
+toAddForm.addEventListener('submit', addTodo);
+
+
+
+
+
+
 // ik wil todos kunnen verwijderen
 
 // ik wil de status van de todo kunnen veranderen, completed, true false
