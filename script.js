@@ -43,10 +43,10 @@ function addTodo() {
 // }
 const toAddForm = document.getElementById("addForm");
 
-toAddForm.addEventListener('submit', addTodo);
+toAddForm.addEventListener('submit',addTodo);
 
 
-
+console.log(todos)
 
 
 
