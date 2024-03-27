@@ -1,3 +1,5 @@
+
+
 const todoList = document.querySelector('#todos');
 
 const todos = [
@@ -26,21 +28,25 @@ todos.forEach(function (todo) {
 
 
 
-function addTodo() {
+function addTodo(event) {
+  event.preventDefault();
   const input = document.getElementsByName("todo")
   const inputValue = input.value;
 
   let newTodo = {
-    text: inputValue,
-    todos: false
+    text: 'inputValue',
+    completed: false
   }
+
   todos.push = newTodo
+  console.log(todos)
+
+  const list = document.getElementById('todos');
+  //list.reload();
+  //list.load();     - Blijkbaar werkt dit niet? https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/load //
+  // Push.state() gebruiken?
 }
 
-
-// addForm.addEventListener('submit', addTodo){
-
-// }
 const toAddForm = document.getElementById("addForm");
 
 toAddForm.addEventListener('submit',addTodo);
