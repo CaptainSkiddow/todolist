@@ -39,9 +39,12 @@ function addTodo(event) {
   }
 
   todos.push = newTodo
-  console.log(todos)
+  //Dit werkt ook niet, hij pushed niet goed naar de array//
+
+  console.log(todos) // OM te testen hoe de array eruit ziet, zonder dat de html hoeft worden gerefreshed. 
 
   const list = document.getElementById('todos');
+
   //list.reload();
   //list.load();     - Blijkbaar werkt dit niet? https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/load //
   // Push.state() gebruiken?
@@ -49,7 +52,7 @@ function addTodo(event) {
 
 const toAddForm = document.getElementById("addForm");
 
-toAddForm.addEventListener('submit',addTodo);
+toAddForm.addEventListener('submit', addTodo);
 
 
 console.log(todos)
