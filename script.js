@@ -38,8 +38,10 @@ function addTodo(event) {
     completed: false
   }
 
-  todos.push = newTodo
-  //Dit werkt ook niet, hij pushed niet goed naar de array//
+  //todos.push = newTodo//
+
+  todos.push = { text: 'inputValue', completed: false }
+
 
   console.log(todos) // OM te testen hoe de array eruit ziet, zonder dat de html hoeft worden gerefreshed. 
 
