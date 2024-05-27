@@ -57,6 +57,11 @@ function addTodo(event) {
 
 }
 
+function toggleCompleted(index) {
+  todos[index].completed = !todos[index].completed;
+  renderTodos();
+}
+
 const toAddForm = document.getElementById("addForm");
 
 toAddForm.addEventListener('submit', addTodo);
