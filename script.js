@@ -11,11 +11,6 @@ const todos = [
 ];
 
 // loop through the todos array and create a new p for each todo
-todos.forEach(function (todo) {
-  const todoElement = document.createElement('li');
-  todoElement.textContent = todo.text;
-  todoList.appendChild(todoElement);
-});
 
 // ik wil todo's kunnen toevoegen
 // een onSubmit event die afvangen
@@ -30,17 +25,15 @@ todos.forEach(function (todo) {
 
 function addTodo(event) {
   event.preventDefault();
-  const input = document.getElementsByName("todo")
-  const inputValue = input.value;
+
+  const formInput = document.getElementById("todo").value;
 
   let newTodo = {
-    text: 'inputValue',
+    text: formInput,
     completed: false
   }
 
-  //todos.push = newTodo//
-
-  todos.push = { text: 'inputValue', completed: false }
+  todos.push(newTodo)
 
 
   console.log(todos) // OM te testen hoe de array eruit ziet, zonder dat de html hoeft worden gerefreshed. 
@@ -50,6 +43,18 @@ function addTodo(event) {
   //list.reload();
   //list.load();     - Blijkbaar werkt dit niet? https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/load //
   // Push.state() gebruiken?
+
+  document.getElementById('addForm').reset(); // Reset het 'input' veld van de form. 
+
+
+  const todoList = document.getElementById('todos');
+  todoList.innerHTML = '';
+  todos.forEach(function (todo) {
+    const todoElement = document.createElement('li');
+    todoElement.textContent = todo.text;
+    todoList.appendChild(todoElement);
+  });
+
 }
 
 const toAddForm = document.getElementById("addForm");
@@ -59,6 +64,11 @@ toAddForm.addEventListener('submit', addTodo);
 
 console.log(todos)
 
+todos.forEach(function (todo) {
+  const todoElement = document.createElement('li');
+  todoElement.textContent = todo.text;
+  todoList.appendChild(todoElement);
+});
 
 
 // ik wil todos kunnen verwijderen
