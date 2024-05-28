@@ -52,14 +52,18 @@ function addTodo(event) {
   todos.forEach(function (todo) {
     const todoElement = document.createElement('li');
     todoElement.textContent = todo.text;
+    todoElement.className = 'todoItem';
     todoList.appendChild(todoElement);
   });
 
-}
+  todos.forEach(function (todos) {
+    if (todos.completed == true) {
+      todo.className = 'todoItem .completed'
+    } else {
+      //??
+    }
+  });
 
-function toggleCompleted(index) {
-  todos[index].completed = !todos[index].completed;
-  renderTodos();
 }
 
 const toAddForm = document.getElementById("addForm");
@@ -72,8 +76,15 @@ console.log(todos)
 todos.forEach(function (todo) {
   const todoElement = document.createElement('li');
   todoElement.textContent = todo.text;
+  todoElement.className = 'todoItem';
   todoList.appendChild(todoElement);
+  //const isComplete = todo(completed == true)
+
+
 });
+
+
+
 
 
 // ik wil todos kunnen verwijderen
