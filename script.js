@@ -7,7 +7,7 @@ const todos = [
   { text: 'Clean kitchen', completed: true },
   { text: 'Buy food', completed: true },
   { text: 'Do work', completed: false },
-  { text: 'Exercise', completed: true }
+  { text: 'Exercise', completed: true, }
 ];
 
 // loop through the todos array and create a new p for each todo
@@ -30,7 +30,7 @@ function addTodo(event) {
 
   let newTodo = {
     text: formInput,
-    completed: false
+    completed: false,
   }
 
   todos.push(newTodo)
@@ -43,26 +43,33 @@ function addTodo(event) {
   //list.reload();
   //list.load();     - Blijkbaar werkt dit niet? https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/load //
   // Push.state() gebruiken?
+  // Het is dus todos.push(newTodo). Fixed!
+
+
+  console.log(todos) // For testing purposes :)
 
   document.getElementById('addForm').reset(); // Reset het 'input' veld van de form. 
 
 
   const todoList = document.getElementById('todos');
   todoList.innerHTML = '';
-  todos.forEach(function (todo) {
-    const todoElement = document.createElement('li');
-    todoElement.textContent = todo.text;
-    todoElement.className = 'todoItem';
-    todoList.appendChild(todoElement);
-  });
 
-  todos.forEach(function (todos) {
-    if (todos.completed == true) {
-      todo.className = 'todoItem .completed'
-    } else {
-      //??
-    }
-  });
+  /*
+    todos.forEach(function (todo) {
+      const todoElement = document.createElement('li');
+      const todoText = document.createElement('span');
+      todoText.textContent = todo.text;
+      todoElement.className = 'todoItem';
+      todoElement.appendChild(todoText);
+      todoList.appendChild(todoElement);
+  
+    });
+  
+    */
+
+
+
+  renderTodos();
 
 }
 
@@ -73,17 +80,43 @@ toAddForm.addEventListener('submit', addTodo);
 
 console.log(todos)
 
-todos.forEach(function (todo) {
-  const todoElement = document.createElement('li');
-  todoElement.textContent = todo.text;
-  todoElement.className = 'todoItem';
-  todoList.appendChild(todoElement);
-  //const isComplete = todo(completed == true)
+
+function renderTodos() {
+
+  const todoList = document.getElementById('todos');
+  todoList.innerHTML = '';
+
+  todos.forEach(function (todo, index) {
+    const todoElement = document.createElement('li');
+    const todoText = document.createElement('span');
+    todoText.textContent = todo.text;
+    todoText.addEventListener('click', () => toggleCompleted(index));
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.addEventListener('click', () => deleteTodo(index));
 
 
-});
+    todoElement.className = 'todoItem';
 
+    todoElement.appendChild(todoText);
+    todoElement.appendChild(deleteButton);
+    todoList.appendChild(todoElement);
 
+  })
+
+};
+
+renderTodos();
+
+function deleteTodo(index) {
+  todos.splice(index, 1)
+  renderTodos();
+}
+
+function toggleCompleted(index) {
+
+}
 
 
 

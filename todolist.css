@@ -2,3 +2,9 @@
     text-decoration: line-through;
     color: gray;
 }
+
+todoItem.button {
+    display: flex;
+    justify-content: end;
+    align-self: flex-end;
+}
