@@ -45,9 +45,6 @@ function addTodo(event) {
   // Push.state() gebruiken?
   // Het is dus todos.push(newTodo). Fixed!
 
-
-  console.log(todos) // For testing purposes :)
-
   document.getElementById('addForm').reset(); // Reset het 'input' veld van de form. 
 
 
@@ -78,7 +75,6 @@ const toAddForm = document.getElementById("addForm");
 toAddForm.addEventListener('submit', addTodo);
 
 
-console.log(todos)
 
 
 function renderTodos() {
@@ -103,6 +99,8 @@ function renderTodos() {
     todoElement.appendChild(deleteButton);
     todoList.appendChild(todoElement);
 
+    checkComplete(index);
+
   })
 
 };
@@ -115,7 +113,8 @@ function deleteTodo(index) {
 }
 
 function toggleCompleted(index) {
-
+  todos[index].completed = !todos[index].completed;
+  renderTodos();
 }
 
 
@@ -124,3 +123,10 @@ function toggleCompleted(index) {
 
 // ik wil de status van de todo kunnen veranderen, completed, true false
 
+
+
+function checkComplete() {
+  if (todo.completed) {
+    todoElement.classList.add('completed');
+  }
+}
