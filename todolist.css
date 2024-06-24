@@ -3,8 +3,15 @@
     color: gray;
 }
 
-todoItem.button {
+todos.button {
     display: flex;
+    flex-direction: column;
     justify-content: end;
     align-self: flex-end;
+}
+
+.todoItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
 }
