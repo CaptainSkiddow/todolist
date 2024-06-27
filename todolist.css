@@ -1,6 +1,26 @@
+body {
+    background-color: #f1f1f1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    padding: 1rem 20rem;
+    color: #f1f1f1;
+    background-color: #083d77;
+
+}
+
 .completed {
     text-decoration: line-through;
     color: gray;
+}
+
+#todos {
+    padding: 0rem 20rem;
+    margin: 0;
 }
 
 todos.button {
@@ -13,5 +33,24 @@ todos.button {
 .todoItem {
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    align-items: center;
+    background-color: #083d77;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+#addForm {
+    padding: 0rem 20rem;
+    margin-top: 2rem;
+}
+
+label {
+    color: black;
+}
+
+input {
+    background-color: #00152c;
 }
