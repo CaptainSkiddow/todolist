@@ -13,7 +13,7 @@ body {
 
 }
 
-.completed {
+._completed {
     text-decoration: line-through;
     color: gray;
 }

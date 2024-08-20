@@ -88,6 +88,10 @@ function renderTodos() {
     todoText.textContent = todo.text;
     todoText.addEventListener('click', () => toggleCompleted(index));
 
+    if (todo.completed) {
+      todoElement.classList.add('_completed');
+    }
+
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
     deleteButton.addEventListener('click', () => deleteTodo(index));
